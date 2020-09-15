@@ -36,43 +36,49 @@ namespace FibonacciValidator
         {
             try
             {
-                if (isSubmitted == true)
+                if (string.IsNullOrEmpty(MaxNumberTxtbox.Text))
                 {
-                    invalidSequence = new StringBuilder();
-                    validSequence = new StringBuilder();
-                }
-                isSubmitted = false;
-
-                //Clear the result labels
-                DisplayMaxNumberLbl.Content = string.Empty;
-                DisplayValidEnteriesLbl.Content = string.Empty;
-                DisplayInvalidEnteriesLbl.Content = string.Empty;
-
-                var maxValue = MaxNumberTxtbox.Text;
-                MaxNumberTxtbox.IsEnabled = false;
-
-                var random = RandomNumberTxtBox.Text;
-
-                //Check for empty textbox for random value(s)
-                if (string.IsNullOrEmpty(random))
-                    MessageBox.Show("Please enter random values.");
-
-                //Generate Fibonacci sequence using max value
-                sequence = fibonacciService.GenerateValues(maxValue);
-                bool exist = sequence.Contains(Convert.ToInt32(random));
-                
-                if (!exist)
-                {
-                    invalidSequence.Append(random + ", ");
-                    MessageBox.Show($"Invalid number in the Fibonacci sequence --> {random}");
+                    MessageBox.Show("Max value is required...Please enter value.");
                 }
                 else
                 {
-                    validSequence.Append(random + ", ");
-                    MessageBox.Show($"Valid number in the Fibonacci sequence --> {random}");
-                }
-                RandomNumberTxtBox.Text = string.Empty;
-            }
+                    if (isSubmitted == true)
+                    {
+                        invalidSequence = new StringBuilder();
+                        validSequence = new StringBuilder();
+                    }
+                    isSubmitted = false;
+
+                    //Clear the result labels
+                    DisplayMaxNumberLbl.Content = string.Empty;
+                    DisplayValidEnteriesLbl.Content = string.Empty;
+                    DisplayInvalidEnteriesLbl.Content = string.Empty;
+
+                    var maxValue = MaxNumberTxtbox.Text;
+                    MaxNumberTxtbox.IsEnabled = false;
+
+                    var random = RandomNumberTxtBox.Text;
+
+                    //Check for empty textbox for random value(s)
+                    if (string.IsNullOrEmpty(random))
+                        MessageBox.Show("Please enter random values.");
+
+                    //Generate Fibonacci sequence using max value
+                    sequence = fibonacciService.GenerateValues(maxValue);
+                    bool exist = sequence.Contains(Convert.ToInt32(random));
+
+                    if (!exist)
+                    {
+                        invalidSequence.Append(random + ", ");
+                        MessageBox.Show($"Invalid number in the Fibonacci sequence --> {random}");
+                    }
+                    else
+                    {
+                        validSequence.Append(random + ", ");
+                        MessageBox.Show($"Valid number in the Fibonacci sequence --> {random}");
+                    }
+                    RandomNumberTxtBox.Text = string.Empty;
+                } }
             catch (Exception ex)
             {
 
