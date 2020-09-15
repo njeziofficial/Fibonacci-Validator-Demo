@@ -1,0 +1,5 @@
+C:\Projects\FibonacciDemo\Logic\bin\Debug\Logic.dll
+C:\Projects\FibonacciDemo\Logic\bin\Debug\Logic.pdb
+C:\Projects\FibonacciDemo\Logic\obj\Debug\Logic.csproj.CoreCompileInputs.cache
+C:\Projects\FibonacciDemo\Logic\obj\Debug\Logic.dll
+C:\Projects\FibonacciDemo\Logic\obj\Debug\Logic.pdb
